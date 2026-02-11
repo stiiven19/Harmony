@@ -1,2 +1,80 @@
-# Harmony
-Aplicación de bienestar integral para Android desarrollada en Kotlin, diseñada para ayudarte a encontrar la paz interior y mejorar tu calidad de vida y productividad.
+
+![Kotlin](https://img.shields.io/badge/Kotlin-1.8-purple)
+![Android](https://img.shields.io/badge/Platform-Android-green)
+![Firebase](https://img.shields.io/badge/Firebase-Auth-orange)
+
+# Harmony App
+
+Aplicación de bienestar integral para Android desarrollada en Kotlin, diseñada para ayudarte a encontrar paz interior y mejorar tu calidad de vida.
+
+---
+
+## 🌟 Características Principales
+
+### 🔐 Autenticación Segura
+- Inicio de sesión con Google a través de Firebase
+- Sincronización de datos en la nube
+
+### 🧘‍♀️ Módulo de Meditación
+- Técnicas guiadas de meditación
+- Ejercicios de respiración
+- Rutinas para conciliar el sueño
+- Herramientas para la gestión del estrés
+
+### 👥 Comunidad de Apoyo
+- Haz preguntas a la comunidad
+- Recibe respuestas de otros usuarios
+- Comparte tus experiencias y consejos
+
+### 🎵 Reproductor de Música Relajante
+- Reproduce tus canciones favoritas
+- Crea listas de reproducción personalizadas
+- Control de reproducción intuitivo
+
+### 📔 Diario Personal
+- Escribe y guarda notas diarias
+- Organización automática por fechas
+- Privacidad asegurada
+
+### 💡 Consejos y Actividades
+- Recibe consejos aleatorios de bienestar
+- Crea y gestiona actividades para mejorar tu productividad
+- Recomendaciones personalizadas
+---
+
+## 📸 Capturas de Pantalla
+
+### 🔐 Autenticación · Meditación · Comunidad
+![Login+Meditacion+Comunidad](images/Login.webp)
+
+### 🎵 Reproductor · Diario · Productividad
+![Reproductor+Diario+Productividad](images/Reproductor.webp)
+
+---
+
+## 📋 Requisitos Técnicos
+
+- Android 8.0 (API nivel 26) o superior
+- Android Studio Giraffe o superior
+- Kotlin 1.8.0 o superior
+- Cuenta de Google para autenticación
+- Conexión a Internet para sincronización
+
+## 🚀 Instalación para Desarrolladores
+
+1. Clona el repositorio:
+   ```bash
+   git clone https://github.com/stiiven19/Harmony.git
+
+   ```
+
+2. Configuración de Firebase:
+   - Crea un nuevo proyecto en [Firebase Console](https://console.firebase.google.com/)
+   - Añade una aplicación Android con el package name: `com.example.projecta`
+   - Descarga el archivo `google-services.json` y colócalo en `app/`
+   - Habilita la autenticación con Google en Firebase Console
+
+
+## 👨‍💻 Autor
+**Steven Guerrero**  
+Ingeniero de Sistemas 
