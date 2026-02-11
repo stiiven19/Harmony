@@ -56,7 +56,7 @@ dependencies {
     // Declare the dependency for the Cloud Storage library
     implementation("com.google.firebase:firebase-storage-ktx")
 
-    implementation("com.google.android.gms:play-services-auth:20.7.0")
+    implementation("com.google.android.gms:play-services-auth:21.0.0")
 
 
     //RecyclerView

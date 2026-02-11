@@ -1,4 +1,4 @@
-package com.example.recyclerviewreproductordemusica.reproductor
+package com.example.projecta.reproductor
 
 import android.graphics.Color
 import android.graphics.Paint

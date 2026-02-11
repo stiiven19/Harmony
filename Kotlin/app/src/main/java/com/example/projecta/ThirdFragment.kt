@@ -21,8 +21,8 @@ import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.recyclerviewreproductordemusica.reproductor.Reminder
-import com.example.recyclerviewreproductordemusica.reproductor.RemindersAdapter
+import com.example.projecta.reproductor.Reminder
+import com.example.projecta.reproductor.RemindersAdapter
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.io.File
@@ -249,17 +249,14 @@ class ThirdFragment : Fragment() {
                 if (mp.currentPosition > 0) {
                     // If song was paused, resume it
                     mp.start()
-                } else if (cancionActualIndex < reminders.size) {
+                    reminders[cancionActualIndex].isPlaying = true
+                    handler.postDelayed(updateSeekBar, 100)
+                    controllers[ci.play].setIconResource(R.drawable.baseline_pause_24)
+                } else {
                     // Start playing the current song
                     refreshSong()
                     return
                 }
-
-                reminders[cancionActualIndex].isPlaying = true
-                seekBar.max = mp.duration
-                handler.postDelayed(updateSeekBar, 100)
-                controllers[ci.play].setIconResource(R.drawable.baseline_pause_24)
-                nombreCancion.visibility = View.VISIBLE
             } else {
                 mp.pause()
                 if (cancionActualIndex < reminders.size) {
@@ -328,13 +325,16 @@ class ThirdFragment : Fragment() {
             }
 
             mp.prepare()
-            playClicked(controllers[ci.play])
+            mp.start() // Iniciar reproducción directamente
+            reminders[cancionActualIndex].isPlaying = true
+            seekBar.max = mp.duration
+            handler.postDelayed(updateSeekBar, 100)
+            controllers[ci.play].setIconResource(R.drawable.baseline_pause_24)
             nombreCancion.text = cancionActual
+            nombreCancion.visibility = View.VISIBLE
 
             // Update the UI
             activity?.runOnUiThread {
-                seekBar.max = mp.duration
-                nombreCancion.visibility = View.VISIBLE
                 // Update the RecyclerView to show the correct play state
                 val previousIndex = if (cancionActualIndex > 0) cancionActualIndex - 1 else 0
                 remindersAdapter.notifyItemChanged(previousIndex)
@@ -406,18 +406,18 @@ class ThirdFragment : Fragment() {
         updateReminders()
     }
     private fun onPlaySelected(position: Int) {
-        if (mp.isPlaying()) {
+        if (mp.isPlaying) {
             if (cancionActualIndex == position) {
                 mp.pause()
                 handler.removeCallbacks(updateSeekBar)
                 controllers[ci.play].setIconResource(R.drawable.baseline_play_arrow_24)
             } else {
                 cancionActualIndex = position
-                playClicked(controllers[ci.play])
+                refreshSong()
             }
         } else {
             cancionActualIndex = position
-            playClicked(controllers[ci.play])
+            refreshSong()
         }
 
 
